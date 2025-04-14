@@ -100,7 +100,7 @@ export default function Carousel() {
           >
             {/* Background Image with subtle blur and darkening */}
             <div
-              className="absolute inset-0 bg-cover bg-center opacity-20 scale-105 "
+              className="absolute inset-0 bg-cover bg-center scale-105 filter opacity-20  brightness-85"
               style={{ backgroundImage: `url(${slide.image})` }}
             ></div>
 
@@ -117,7 +117,7 @@ export default function Carousel() {
               </motion.p>
               <button
                 onClick={() => setShowModal(true)}
-                className="bg-burntOrange text-burtBlue font-bold px-6 py-3 rounded-full text-lg hover:bg-white/90 transition duration-300 shadow-md"
+                className="bg-white text-burtBlue font-bold px-6 py-3 rounded-full text-lg hover:bg-white/90 transition duration-300 shadow-md"
               >
                 Learn More
               </button>
@@ -129,13 +129,13 @@ export default function Carousel() {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-orange-600 text-white p-2 rounded-full shadow-md hover:bg-gray-700 z-20"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white text-burtBlue p-2 rounded-full shadow-md hover:bg-white/90 z-20"
       >
         <ChevronLeft size={28} />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-orange-600 text-white p-2 rounded-full shadow-md hover:bg-gray-700 z-20"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white text-burtBlue p-2 rounded-full shadow-md hover:bg-white/90 z-20"
       >
         <ChevronRight size={28} />
       </button>
