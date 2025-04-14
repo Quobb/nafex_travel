@@ -350,8 +350,8 @@ const ServicesPage = () => {
               Contact NAFEX today and let us handle all the complexities of your international plans.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <motion.a
-                href="#"
+              <motion.a 
+                onClick={() => setShowModal(true)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-burtBlue px-8 py-4 rounded-lg font-bold hover:bg-opacity-90 transition"
@@ -359,7 +359,7 @@ const ServicesPage = () => {
                 Get Started
               </motion.a>
               <motion.a
-                href="#"
+                href="tel:+2330553831241"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:bg-opacity-10 transition"

@@ -36,8 +36,8 @@ function Contact() {
     <div>
        <ContactPage />
           <FeatureSection />
-          <CountriesWeOffer />
-          <TrainingSection />
+          {/* <CountriesWeOffer />
+          <TrainingSection /> */}
           <Footer />
             
           {showBackToTop && (

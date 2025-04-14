@@ -200,7 +200,7 @@ function AboutUs() {
             <button onClick={() => setShowModal(true)} className="bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-opacity-90 transition">
               Get Free Consultation
             </button>
-            <a href="#" className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:bg-opacity-10 transition">
+            <a href="tel:+2330553831241" className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:bg-opacity-10 transition">
               Call Us Now
             </a>
           </motion.div>

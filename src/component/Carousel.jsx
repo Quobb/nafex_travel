@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
+import EnquiryModal from './EnquiryModal';
 const slides = [
   
     {
@@ -68,6 +68,7 @@ const slides = [
 ];
 
 export default function Carousel() {
+  const [showModal, setShowModal] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevSlide = () => {
@@ -87,53 +88,61 @@ export default function Carousel() {
 
   return (
     <div className="relative w-full overflow-hidden">
-      <div className="relative w-full h-[600px] md:h-[900px] flex items-center justify-center">
+      <div className="relative w-full h-[80vh] md:h-[100vh]">
         {slides.map((slide, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0 }}
             animate={{ opacity: index === currentIndex ? 1 : 0 }}
-            transition={{ duration: 0.5 }}
-            className={`absolute inset-0 flex items-center justify-center w-full h-full transition-opacity duration-500 ${
+            transition={{ duration: 0.7 }}
+            className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
               index === currentIndex ? "opacity-100" : "opacity-0"
             }`}
           >
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="relative bg-opacity-50 text-center p-6 max-w-3xl mx-auto text-white rounded-lg">
-              <h4 className="text-2xl md:text-5xl text-orange-600 font-semibold uppercase mb-2">
-                {slide.title}
-              </h4>
-              <h1 className="text-3xl md:text-6xl text-orange-600 font-bold mb-4">
+            {/* Background Image with Blur */}
+            <div
+              className="absolute inset-0 bg-cover bg-center opacity-20 scale-105 "
+              style={{ backgroundImage: `url(${slide.image})` }}
+            ></div>
+
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-burtBlue to-burntOrange opacity-90"></div>
+
+            {/* Foreground Text Content */}
+            <div className="relative z-10 max-w-6xl mx-auto h-full flex flex-col justify-center items-center text-center px-6">
+              <motion.h2 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold drop-shadow-md mb-4">
                 {slide.heading}
-              </h1>
-              <p className="text-lg md:text-2xl mb-4 text-orange-600">{slide.text}</p>
+              </motion.h2>
+              <motion.p className="text-lg md:text-xl text-white/90 max-w-2xl mb-6 drop-shadow-sm">
+                {slide.text}
+              </motion.p>
               <a
-                href="#"
-                className="bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-full text-lg md:text-2xl"
+                onClick={() => setShowModal(true)}
+                className="bg-burntOrange text-burtBlue font-bold px-6 py-3 rounded-full text-lg hover:bg-white/90 transition duration-300 shadow-md"
               >
-                More Details
+                Learn More
               </a>
             </div>
           </motion.div>
         ))}
       </div>
 
+      {/* Arrows */}
       <button
         onClick={prevSlide}
         className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-orange-600 text-white p-2 rounded-full shadow-md hover:bg-gray-700"
       >
-        <ChevronLeft size={30} />
+        <ChevronLeft size={28} />
       </button>
       <button
         onClick={nextSlide}
         className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-orange-600 text-white p-2 rounded-full shadow-md hover:bg-gray-700"
       >
-        <ChevronRight size={30} />
+        <ChevronRight size={28} />
       </button>
+      {showModal && (
+       <EnquiryModal showModal={showModal} setShowModal={setShowModal} />
+      )}
     </div>
   );
 }

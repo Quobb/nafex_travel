@@ -35,8 +35,8 @@ function Services() {
     <div>   
           <ServicesPage />
           <FeatureSection />
-          <CountriesWeOffer />
-          <TrainingSection />
+          {/* <CountriesWeOffer />
+          <TrainingSection /> */}
           <Footer />
             
           {showBackToTop && (
