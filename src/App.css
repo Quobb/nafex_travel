@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme{
-  --color-burntOrange: #CC5500;
+  --color-burntOrange: #ef4b30;
   --color-burtBlue: #003B5C;
-  --color-primary: #CC5500;     
+  --color-primary: #ef4b30;     
   --color-burtblue: #003B5C;     
 }

@@ -102,14 +102,15 @@ function Footer() {
            
 
             {/* Newsletter Subscription Form */}
-            <div className="relative w-full">
-              <input
+            <div className="relative w-full outline outline-2 outline-burntOrange focus:outline-burntOrange transition-all">
+            <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="w-full rounded-full py-3 pl-4 pr-28 text-black outline-none"
+                className="w-full rounded-full py-3 pl-4 pr-28 text-black border-2 border-burntOrange focus:border-burntOrange transition-all"
               />
+
               <button
                 onClick={handleSubscribe}
                 type="button"

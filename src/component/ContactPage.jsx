@@ -195,7 +195,7 @@ const [loading, setLoading] = useState(false);
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800">Our Office</h3>
-                    <p className="text-gray-600">123 International Plaza, Suite 500<br />New York, NY 10001</p>
+                    <p className="text-gray-600">Ghan<br />Accra & HO</p>
                   </div>
                 </div>
 
@@ -207,7 +207,7 @@ const [loading, setLoading] = useState(false);
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800">Phone</h3>
-                    <p className="text-gray-600">Main: +1 (555) 123-4567<br />Support: +1 (555) 987-6543</p>
+                    <p className="text-gray-600">Main: +233 559 669 249 <br />Support: +233 556 484 814</p>
                   </div>
                 </div>
 
@@ -219,7 +219,7 @@ const [loading, setLoading] = useState(false);
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-800">Email</h3>
-                    <p className="text-gray-600">info@nafex.com<br />support@nafex.com</p>
+                    <p className="text-gray-600">consultancynafex@gmail.com<br />nafex@gmail.com</p>
                   </div>
                 </div>
 

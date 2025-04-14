@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import EnquiryModal from './EnquiryModal';
 
 function AboutUs() {
+  const [showModal, setShowModal] = useState(false);
+  
+ 
   return (
     <div>
 
@@ -193,16 +197,18 @@ function AboutUs() {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            <a href="#" className="bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-opacity-90 transition">
+            <button onClick={() => setShowModal(true)} className="bg-white text-primary px-8 py-4 rounded-lg font-bold hover:bg-opacity-90 transition">
               Get Free Consultation
-            </a>
+            </button>
             <a href="#" className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:bg-opacity-10 transition">
               Call Us Now
             </a>
           </motion.div>
         </div>
       </section>
-
+      {showModal && (
+       <EnquiryModal showModal={showModal} setShowModal={setShowModal} />
+      )}
     </div>
   );
 }

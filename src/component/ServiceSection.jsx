@@ -24,6 +24,7 @@ const services = [
     title: 'Tourist Visa',
     description: 'Plan your dream trip with our seamless tourist visa application process.',
   },
+ 
 ];
 
 function ServiceSection() {
@@ -155,7 +156,7 @@ function ServiceSection() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.3 }}
-              className="bg-white w-full sm:w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%] h-full p-6 overflow-y-auto relative"
+              className="bg-white w-full sm:w-[90%] md:w-[70%] lg:w-[50%] xl:w-[30%] h-full p-6 overflow-y-auto relative"
             >
               {/* Close Button */}
               <button
@@ -168,7 +169,7 @@ function ServiceSection() {
               {/* Modal Content */}
               <div className=" md:flex-row gap-6">
                 {/* Left Side: Image + Title + Description */}
-                <div className="flex flex-row space-y-4">
+                <div className=" space-y-4">
                   <img
                     src={selectedService?.img}
                     alt={selectedService?.title}
