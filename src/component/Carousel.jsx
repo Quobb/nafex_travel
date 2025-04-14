@@ -135,7 +135,7 @@ export default function Carousel() {
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white text-burtBlue p-2 rounded-full shadow-md hover:bg-white/90 z-20"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white text-burtBlue p-2 rounded-full shadow-md hover:bg-white/90 z-20"
       >
         <ChevronRight size={28} />
       </button>
