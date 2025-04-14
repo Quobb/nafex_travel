@@ -105,7 +105,7 @@ export default function Carousel() {
             ></div>
 
             {/* Gradient Overlay (optional, but adds a nice warm touch) */}
-            <div className="absolute inset-0 bg-gradient-to-r from-burtBlue to-burntOrange opacity-80 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-burtBlue to-burntOrange opacity-40 mix-blend-multiply"></div>
 
             {/* Foreground Text Content */}
             <div className="relative z-10 max-w-6xl mx-auto h-full flex flex-col justify-center items-center text-center px-6">
