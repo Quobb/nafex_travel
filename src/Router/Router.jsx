@@ -13,11 +13,13 @@ import Navbar from '../component/Navbar';
 import Passport from '../Screens/Passport';
 import StudyAbrod from '../Screens/StudyAbrod';
 import TouristVisa from '../Screens/TouristVisa';
+import AppLayout from '../component/AppLayout';
   
   function RouterApp() {
     return (
       <Router>
         <Navbar />
+        <AppLayout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -28,6 +30,7 @@ import TouristVisa from '../Screens/TouristVisa';
           <Route path="/study-abroad" element={<StudyAbrod />} />
           <Route path="/tourist-visa" element={<TouristVisa />} />
         </Routes>
+      </AppLayout>
       </Router>
     );
   }
