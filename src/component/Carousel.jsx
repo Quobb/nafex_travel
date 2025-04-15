@@ -69,21 +69,40 @@ const slides = [
 export default function Carousel() {
   const [showModal, setShowModal] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0); // -1 = left, 1 = right
 
   const prevSlide = () => {
+    setDirection(-1);
     setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
+    setDirection(1);
     setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
+      setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  const slideVariants = {
+    enter: (dir) => ({
+      x: dir > 0 ? 300 : -300,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (dir) => ({
+      x: dir > 0 ? -300 : 300,
+      opacity: 0,
+    }),
+  };
 
   return (
     <motion.div
@@ -91,16 +110,18 @@ export default function Carousel() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.6 }}
     >
       <div className="relative w-full h-[80vh] md:h-[100vh]">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.3 } }}
             className="absolute inset-0 w-full h-full"
           >
             {/* Background Image */}
@@ -112,11 +133,11 @@ export default function Carousel() {
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-burtBlue to-burntOrange opacity-40 mix-blend-multiply"></div>
 
-            {/* Foreground Text Content */}
+            {/* Foreground Content */}
             <div className="relative z-10 max-w-6xl mx-auto h-full flex flex-col justify-center items-center text-center px-6">
               <motion.h2
                 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold drop-shadow-md mb-4"
-                initial={{ y: 30, opacity: 0 }}
+                initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
@@ -124,18 +145,18 @@ export default function Carousel() {
               </motion.h2>
               <motion.p
                 className="text-lg md:text-xl text-white/90 max-w-2xl mb-6 drop-shadow-sm"
-                initial={{ y: 30, opacity: 0 }}
+                initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.4 }}
               >
                 {slides[currentIndex].text}
               </motion.p>
               <motion.button
                 onClick={() => setShowModal(true)}
                 className="bg-white text-burtBlue font-bold px-6 py-3 rounded-full text-lg hover:bg-white/90 transition duration-300 shadow-md"
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 0.7 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5 }}
               >
                 Learn More
               </motion.button>
@@ -144,7 +165,7 @@ export default function Carousel() {
         </AnimatePresence>
       </div>
 
-      {/* Arrows */}
+      {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
         className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white text-burtBlue p-2 rounded-full shadow-md hover:bg-white/90 z-20"
