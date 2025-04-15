@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import EnquiryModal from './EnquiryModal';
 
@@ -86,47 +86,65 @@ export default function Carousel() {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <motion.div
+      className="relative w-full overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.8 }}
+    >
       <div className="relative w-full h-[80vh] md:h-[100vh]">
-        {slides.map((slide, index) => (
+        <AnimatePresence mode="wait">
           <motion.div
-            key={index}
+            key={currentIndex}
             initial={{ opacity: 0 }}
-            animate={{ opacity: index === currentIndex ? 1 : 0 }}
-            transition={{ duration: 0.7 }}
-            className={`absolute inset-0 w-full h-full transition-opacity duration-500 ${
-              index === currentIndex ? "opacity-100" : "opacity-0"
-            }`}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="absolute inset-0 w-full h-full"
           >
-            {/* Background Image with subtle blur and darkening */}
+            {/* Background Image */}
             <div
-              className="absolute inset-0 bg-cover bg-center scale-105 filter opacity-20  brightness-85"
-              style={{ backgroundImage: `url(${slide.image})` }}
+              className="absolute inset-0 bg-cover bg-center scale-105 filter opacity-20 brightness-85"
+              style={{ backgroundImage: `url(${slides[currentIndex].image})` }}
             ></div>
 
-            {/* Gradient Overlay (optional, but adds a nice warm touch) */}
+            {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-burtBlue to-burntOrange opacity-40 mix-blend-multiply"></div>
 
             {/* Foreground Text Content */}
             <div className="relative z-10 max-w-6xl mx-auto h-full flex flex-col justify-center items-center text-center px-6">
-              <motion.h2 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold drop-shadow-md mb-4">
-                {slide.heading}
+              <motion.h2
+                className="text-white text-3xl md:text-5xl lg:text-6xl font-bold drop-shadow-md mb-4"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3 }}
+              >
+                {slides[currentIndex].heading}
               </motion.h2>
-              <motion.p className="text-lg md:text-xl text-white/90 max-w-2xl mb-6 drop-shadow-sm">
-                {slide.text}
+              <motion.p
+                className="text-lg md:text-xl text-white/90 max-w-2xl mb-6 drop-shadow-sm"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                {slides[currentIndex].text}
               </motion.p>
-              <button
+              <motion.button
                 onClick={() => setShowModal(true)}
                 className="bg-white text-burtBlue font-bold px-6 py-3 rounded-full text-lg hover:bg-white/90 transition duration-300 shadow-md"
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.7 }}
               >
                 Learn More
-              </button>
+              </motion.button>
             </div>
           </motion.div>
-        ))}
+        </AnimatePresence>
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Arrows */}
       <button
         onClick={prevSlide}
         className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white text-burtBlue p-2 rounded-full shadow-md hover:bg-white/90 z-20"
@@ -140,10 +158,9 @@ export default function Carousel() {
         <ChevronRight size={28} />
       </button>
 
-      {/* Modal */}
       {showModal && (
         <EnquiryModal showModal={showModal} setShowModal={setShowModal} />
       )}
-    </div>
+    </motion.div>
   );
 }
