@@ -3,7 +3,7 @@ import {
     Routes,
     Route,
   } from 'react-router-dom';
-  
+  import { useEffect } from "react";
   import Home from '../Screens/Home';
   import About from '../Screens/About';
   import Contact from '../Screens/Contact';
@@ -14,8 +14,25 @@ import Passport from '../Screens/Passport';
 import StudyAbrod from '../Screens/StudyAbrod';
 import TouristVisa from '../Screens/TouristVisa';
 import AppLayout from '../component/AppLayout';
+import NProgress from 'nprogress'; 
+import 'nprogress/nprogress.css'; 
   
   function RouterApp() {
+
+    useEffect(() => {
+  
+      NProgress.start();
+
+      const onRouteChangeComplete = () => {
+        NProgress.done();
+      };
+
+      window.addEventListener('popstate', onRouteChangeComplete);
+      return () => {
+        window.removeEventListener('popstate', onRouteChangeComplete);
+      };
+    }, []);
+
     return (
       <Router>
         <Navbar />

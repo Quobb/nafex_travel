@@ -136,7 +136,7 @@ export default function Carousel() {
               className="absolute inset-0 bg-cover bg-center scale-105 filter opacity-20 brightness-85"
               style={{ backgroundImage: `url(${slides[currentIndex].image})` }}
             ></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-burtBlue to-burntOrange opacity-40 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-gradient-to-r  opacity-40 mix-blend-multiply"></div>
 
             {/* Foreground Text */}
             <div className="relative z-10 max-w-6xl mx-auto h-full flex flex-col justify-center items-center text-center px-6">
