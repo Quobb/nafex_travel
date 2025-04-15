@@ -69,7 +69,7 @@ const slides = [
 export default function Carousel() {
   const [showModal, setShowModal] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // -1 = left, 1 = right
+  const [direction, setDirection] = useState(0);
 
   const prevSlide = () => {
     setDirection(-1);
@@ -91,16 +91,19 @@ export default function Carousel() {
 
   const slideVariants = {
     enter: (dir) => ({
-      x: dir > 0 ? 300 : -300,
+      x: dir > 0 ? 150 : -150,
       opacity: 0,
+      scale: 0.98,
     }),
     center: {
       x: 0,
       opacity: 1,
+      scale: 1,
     },
     exit: (dir) => ({
-      x: dir > 0 ? -300 : 300,
+      x: dir > 0 ? -150 : 150,
       opacity: 0,
+      scale: 0.98,
     }),
   };
 
@@ -121,42 +124,55 @@ export default function Carousel() {
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.3 } }}
+            transition={{
+              x: { type: "spring", stiffness: 180, damping: 26 },
+              opacity: { duration: 0.4 },
+              scale: { duration: 0.4 }
+            }}
             className="absolute inset-0 w-full h-full"
           >
-            {/* Background Image */}
+            {/* Background */}
             <div
               className="absolute inset-0 bg-cover bg-center scale-105 filter opacity-20 brightness-85"
               style={{ backgroundImage: `url(${slides[currentIndex].image})` }}
             ></div>
-
-            {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-burtBlue to-burntOrange opacity-40 mix-blend-multiply"></div>
 
-            {/* Foreground Content */}
+            {/* Foreground Text */}
             <div className="relative z-10 max-w-6xl mx-auto h-full flex flex-col justify-center items-center text-center px-6">
+              <motion.span
+                className="text-white text-base md:text-lg uppercase tracking-widest mb-2"
+                initial={{ opacity: 0, y: -12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
+              >
+                {slides[currentIndex].title}
+              </motion.span>
+
               <motion.h2
                 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold drop-shadow-md mb-4"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3 }}
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.3, type: "spring", stiffness: 160, damping: 22 }}
               >
                 {slides[currentIndex].heading}
               </motion.h2>
+
               <motion.p
                 className="text-lg md:text-xl text-white/90 max-w-2xl mb-6 drop-shadow-sm"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.4 }}
+                initial={{ scale: 0.92, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.4, type: "spring", stiffness: 150, damping: 20 }}
               >
                 {slides[currentIndex].text}
               </motion.p>
+
               <motion.button
                 onClick={() => setShowModal(true)}
                 className="bg-white text-burtBlue font-bold px-6 py-3 rounded-full text-lg hover:bg-white/90 transition duration-300 shadow-md"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5 }}
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.5, type: "spring", stiffness: 150, damping: 18 }}
               >
                 Learn More
               </motion.button>
@@ -165,7 +181,7 @@ export default function Carousel() {
         </AnimatePresence>
       </div>
 
-      {/* Navigation Buttons */}
+      {/* Navigation */}
       <button
         onClick={prevSlide}
         className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white text-burtBlue p-2 rounded-full shadow-md hover:bg-white/90 z-20"
