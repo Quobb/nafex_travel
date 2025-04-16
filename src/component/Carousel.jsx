@@ -109,7 +109,7 @@ export default function Carousel() {
 
   return (
     <motion.div
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -129,19 +129,19 @@ export default function Carousel() {
               opacity: { duration: 0.4 },
               scale: { duration: 0.4 }
             }}
-            className="absolute inset-0 w-full h-full"
+            className="absolute inset-0 w-full h-full "
           >
             {/* Background */}
             <div
-              className="absolute inset-0 bg-cover bg-center scale-105 filter opacity-20 brightness-85"
+              className="absolute inset-0 bg-cover bg-center scale-105 filter opacity-40 brightness-40"
               style={{ backgroundImage: `url(${slides[currentIndex].image})` }}
             ></div>
-            <div className="absolute inset-0 bg-gradient-to-r  opacity-40 mix-blend-multiply"></div>
+            <div className="absolute inset-0 bg-gradient-to-r  opacity-40 mix-blend-multiply brightness-40"></div>
 
             {/* Foreground Text */}
             <div className="relative z-10 max-w-6xl mx-auto h-full flex flex-col justify-center items-center text-center px-6">
               <motion.span
-                className="text-white text-base md:text-lg uppercase tracking-widest mb-2"
+                className="text-orange-600  text-base md:text-lg uppercase tracking-widest mb-2"
                 initial={{ opacity: 0, y: -12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5, ease: "easeOut" }}
@@ -150,7 +150,7 @@ export default function Carousel() {
               </motion.span>
 
               <motion.h2
-                className="text-white text-3xl md:text-5xl lg:text-6xl font-bold drop-shadow-md mb-4"
+                className="text-orange-600 text-3xl md:text-5xl lg:text-6xl font-bold drop-shadow-md mb-4"
                 initial={{ scale: 0.95, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.3, type: "spring", stiffness: 160, damping: 22 }}
@@ -159,7 +159,7 @@ export default function Carousel() {
               </motion.h2>
 
               <motion.p
-                className="text-lg md:text-xl text-white/90 max-w-2xl mb-6 drop-shadow-sm"
+                className="text-lg md:text-xl text-orange-600  max-w-2xl mb-6 drop-shadow-sm"
                 initial={{ scale: 0.92, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.4, type: "spring", stiffness: 150, damping: 20 }}

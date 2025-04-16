@@ -122,7 +122,7 @@ function Footer() {
                         Sending...
                       </>
                     ) : (
-                      'SignUp'
+                      'Subscribe'
                     )}
               </button>
             </div>
