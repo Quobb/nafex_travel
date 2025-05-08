@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import supabase from '../supabaseClient';
-
+import { Link } from "react-router-dom";
 function Footer() {
 
   const [email, setEmail] = useState('');
@@ -27,6 +27,21 @@ function Footer() {
       setEmail('');
     }
   };
+
+  const services = [
+    { id: 1, name: 'Passport Assistance', image: '/img/passort.jpg', link: '/passport' },
+    { id: 2, name: 'Birth Certificate Assistance', image: '/img/training-1.jpg', link: '/BirthCert' },
+    { id: 3, name: 'Study Abroad with Scholarship', image: '/img/country-3.jpg', link: '/study-abroad' },
+    { id: 4, name: 'Bank Statement Assistance', image: '/img/banksatment.jpg', link: '/bank' },
+    { id: 5, name: 'Block Account Assistance', image: '/img/training-3.jpg', link: '/Block' },
+    { id: 6, name: 'Work & Study Abroad', image: '/img/work.jpg', link: '/WorkStudy' },
+    { id: 7, name: 'Flight Reservation', image: '/img/training-4.jpg', link: '/Flight' },
+    { id: 8, name: 'Visa Procurement', image: '/img/canada-visa.jpg', link: '/VisaProcument' },
+    { id: 9, name: 'Company Registration', image: '/img/register.jpg', link: '/Company' },
+    { id: 10, name: 'Invitation Letter', image: '/img/Reservation.jpg', link: '/InvitationLetter' },
+    { id: 11, name: 'Tourist Visa Assistance', image: '/img/block.jpg', link: '/visa-assist' },
+  ];
+  
 
   return (
     <footer className="w-full bg-burtBlue text-white">
@@ -78,19 +93,13 @@ function Footer() {
           {/* Our Services */}
           <div className="flex flex-col gap-2">
             <h4 className="text-burntOrange text-2xl font-bold mb-4">Our Services</h4>
-            {[
-              "study abroad with scholarship",
-              "Passport",
-              "Tourist Visa",
-              "Visa Procurement",
-              "Flight Reservation",
-              "Work & Study Abroad"
-            ].map((service, index) => (
-              <a key={index} href="#" className="flex items-center gap-2 hover:text-burntOrange">
-                <i className="fas fa-angle-right"></i> {service}
-              </a>
+            {services.map((service, index) => (
+              <Link key={index} to={service.link} className="flex items-center gap-2 hover:text-burntOrange">
+                <i className="fas fa-angle-right"></i> {service.name}
+              </Link>
             ))}
           </div>
+
 
           {/* Newsletter */}
           <div>
@@ -102,7 +111,7 @@ function Footer() {
            
 
             {/* Newsletter Subscription Form */}
-            <div className="relative w-full outline outline-2 outline-burntOrange focus:outline-burntOrange transition-all">
+            <div className="relative w-full  transition-all">
             <input
                 type="email"
                 value={email}

@@ -64,7 +64,7 @@ const Navbar = () => {
 
           <div className="hidden md:flex space-x-6">
             <Link to="/" className="text-burtBlue font-medium hover:text-burntOrange">Home</Link>
-            <Link to="/about" className="text-burtBlue font-medium hover:text-burntOrange">About</Link>
+            
             <Link to="/testimonial" className="text-burtBlue font-medium hover:text-burntOrange">Testimonials</Link>
             <Link to="/service" className="text-burtBlue font-medium hover:text-burntOrange">Services</Link>
             <Link to="/contact" className="text-burtBlue font-medium hover:text-burntOrange">Contact</Link>
@@ -73,27 +73,30 @@ const Navbar = () => {
               onMouseEnter={() => setDropdownOpen(true)}
               onMouseLeave={() => setDropdownOpen(false)}
             >
-              {/* <button
+              <button
                 className="block lg:inline-block text-burtBlue hover:text-burntOrange focus:outline-none "
                 onClick={() => setDropdownOpen(!dropdownOpen)}
               >
                 more
-              </button> */}
+              </button>
               {/* Dropdown */}
               {dropdownOpen && (
                 <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg z-10">
                   <Link to="/passport" className="block px-4 py-2 text-burtBlue hover:text-burntOrange">Passport</Link>
-                  {/* <Link to="/birth-certificate" className="block px-4 py-2 text-burntOrange hover:bg-gray-100">Birth Certificate</Link> */}
+                  <Link to="/BirthCert" className="block px-4 py-2 text-burntOrange hover:bg-gray-100">Birth Certificate</Link>
                   <Link to="/study-abroad" className="block px-4 py-2 text-burtBlue hover:text-burntOrange">Study Abroad</Link>
-                  <Link to="/tourist-visa" className="block px-4 py-2 text-burtBlue hover:text-burntOrange">Tourist Visa</Link>
-                  {/* <Link to="/bank-statement" className="block px-4 py-2 text-burntOrange hover:bg-gray-100">Bank Statement</Link> */}
-                  {/* <Link to="/work-study-abroad" className="block px-4 py-2 text-burntOrange hover:bg-gray-100">Work & Study Abroad</Link> */}
-                  {/* <Link to="/visa-procurement" className="block px-4 py-2 text-burntOrange hover:bg-gray-100">Visa Procurement</Link> */}
-                  {/* <Link to="/company-registration" className="block px-4 py-2 text-burntOrange hover:bg-gray-100">Company Registration</Link> */}
-                  {/* <Link to="/conference-abroad" className="block px-4 py-2 text-burntOrange hover:bg-gray-100">Conference Abroad</Link> */}
+                  <Link to="/visa-assist" className="block px-4 py-2 text-burtBlue hover:text-burntOrange">Tourist Visa</Link>
+                  <Link to="/bank" className="block px-4 py-2 text-burntOrange hover:bg-gray-100">Bank Statement</Link>
+                  <Link to="/WorkStudy" className="block px-4 py-2 text-burntOrange hover:bg-gray-100">Work & Study Abroad</Link>
+                  <Link to="/VisaProcument" className="block px-4 py-2 text-burntOrange hover:bg-gray-100">Visa Procurement</Link>
+                  <Link to="/Company" className="block px-4 py-2 text-burntOrange hover:bg-gray-100">Company Registration</Link>
+                  <Link to="/Flight" className="block px-4 py-2 text-burntOrange hover:bg-gray-100">Flight Reversation</Link>
+                  <Link to="/Block" className="block px-4 py-2 text-burntOrange hover:bg-gray-100">Block account </Link>
+                  <Link to="/InvitationLetter" className="block px-4 py-2 text-burntOrange hover:bg-gray-100">Invitation Letter </Link>
                 </div>
               )}
             </div>
+            <Link to="/about" className="text-burtBlue font-medium hover:text-burntOrange">About</Link>
             <Link to="/" className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Get Started</Link>
           </div>
 

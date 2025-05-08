@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Carousel from '../component/Carousel';
-import VisaCategory from '../component/VisaCategory';
-import ServiceSection from '../component/ServiceSection';
-import FeatureSection from '../component/FeatureSection';
-import CountriesWeOffer from '../component/CountriesWeOffer';
 import Footer from '../component/Footer';
 import TrainingSection from '../component/TrainingSection';
-import StudyAbroadSection from '../component/StudyAbroadSection';
-
-function StudyAbrod() {
+import BirthCertificatePage from '../component/BirthCertificatePage';
+function BirthCert() {
     const [showBackToTop, setShowBackToTop] = useState(false);
     
       useEffect(() => {
@@ -36,7 +30,7 @@ function StudyAbrod() {
     
   return (
     <div>
-    <StudyAbroadSection />
+    <BirthCertificatePage />
       <TrainingSection />
       <Footer />
       {showBackToTop && (
@@ -53,4 +47,4 @@ function StudyAbrod() {
   )
 }
 
-export default StudyAbrod
+export default BirthCert

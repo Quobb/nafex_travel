@@ -15,6 +15,16 @@ import Passport from '../Screens/Passport';
 import StudyAbrod from '../Screens/StudyAbrod';
 import TouristVisa from '../Screens/TouristVisa';
 import AppLayout from '../component/AppLayout';
+import VisaaAssist from '../Screens/VisaaAssist';
+import BankStatementPage from '../Screens/BankStatementPage';
+import VisaProcument from '../Screens/VisaProcument';
+import WithScholarShip from '../Screens/WithScholarShip';
+import BirthCert from '../Screens/BirthCert';
+import Flight from '../Screens/Flight';
+import InvitationLetter from '../Screens/InvitationLetter';
+import Block from '../Screens/Block';
+import Company from '../Screens/Company';
+import WorkStudy from '../Screens/WorkStudy';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
@@ -53,6 +63,16 @@ function RouterApp() {
           <Route path="/passport" element={<Passport />} />
           <Route path="/study-abroad" element={<StudyAbrod />} />
           <Route path="/tourist-visa" element={<TouristVisa />} />
+          <Route path="/visa-assist" element={<VisaaAssist />} />
+          <Route path="/bank" element={<BankStatementPage />} />
+          <Route path="/Flight" element={<Flight />} />
+          <Route path="/VisaProcument" element={<VisaProcument />} />
+          <Route path="/WithScholarShip" element={<WithScholarShip />} />
+          <Route path="/BirthCert" element={<BirthCert />} />
+          <Route path="/Company" element={<Company />} />
+          <Route path="/Block" element={<Block />} />
+          <Route path="/WorkStudy" element={<WorkStudy />} />
+          <Route path="/InvitationLetter" element={<InvitationLetter />} />
         </Routes>
       </AppLayout>
     </Router>

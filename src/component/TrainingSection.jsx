@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSpring, animated, config } from '@react-spring/web';
+import { Link } from "react-router-dom";
 
 const TrainingSection = () => {
   const fadeIn = useSpring({ 
@@ -10,18 +11,17 @@ const TrainingSection = () => {
   });
 
   const services = [
-    { id: 1, name: 'Passport Assistance', image: '/img/passort.jpg' },
-    { id: 2, name: 'Birth Certificate Assistance', image: '/img/training-1.jpg' },
-    { id: 3, name: 'Study Abroad with Scholarship', image: '/img/country-3.jpg' },
-    { id: 4, name: 'Tourist Visa Assistance', image: '/img/austria-visa-2.jpg' },
-    { id: 5, name: 'Bank Statement Assistance', image: '/img/banksatment.jpg' },
-    { id: 6, name: 'Block Account Assistance', image: '/img/training-3.jpg' },
-    { id: 7, name: 'Tourist Visa Assistance', image: '/img/block.jpg' },
-    { id: 8, name: 'Work & Study Abroad', image: '/img/work.jpg' },
-    { id: 9, name: 'Flight Reservation', image: '/img/training-4.jpg' },
-    { id: 10, name: 'Visa Procurement', image: '/img/canada-visa.jpg' },
-    { id: 11, name: 'Company Registration', image: '/img/register.jpg' },
-    { id: 12, name: 'Invitation Letter', image: '/img/Reservation.jpg' },
+    { id: 1, name: 'Passport Assistance', image: '/img/passort.jpg', link: '/passport' },
+    { id: 2, name: 'Birth Certificate Assistance', image: '/img/training-1.jpg', link: '/BirthCert' },
+    { id: 3, name: 'Study Abroad with Scholarship', image: '/img/country-3.jpg', link: '/study-abroad' },
+    { id: 4, name: 'Bank Statement Assistance', image: '/img/banksatment.jpg', link: '/bank' },
+    { id: 5, name: 'Block Account Assistance', image: '/img/training-3.jpg', link: '/Block' },
+    { id: 6, name: 'Work & Study Abroad', image: '/img/work.jpg', link: '/WorkStudy' },
+    { id: 7, name: 'Flight Reservation', image: '/img/training-4.jpg', link: '/Flight' },
+    { id: 8, name: 'Visa Procurement', image: '/img/canada-visa.jpg', link: '/VisaProcument' },
+    { id: 9, name: 'Company Registration', image: '/img/register.jpg', link: '/Company' },
+    { id: 10, name: 'Invitation Letter', image: '/img/Reservation.jpg', link: '/InvitationLetter' },
+    { id: 11, name: 'Tourist Visa Assistance', image: '/img/block.jpg', link: '/visa-assist' },
   ];
 
   const getItemsPerPage = () => {
@@ -127,7 +127,9 @@ const TrainingSection = () => {
                 <p className="text-gray-400 text-sm">
                   Get expert guidance and personalized training to succeed in your goals.
                 </p>
-                <a href="#" className="text-burntOrange hover:underline mt-2 inline-block text-sm">Read More</a>
+                <Link to={service.link} className="text-burntOrange hover:underline mt-2 inline-block text-sm">
+                    Read More
+                </Link>
               </div>
             </animated.div>
           ))}

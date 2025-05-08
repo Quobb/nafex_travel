@@ -7,7 +7,7 @@ import CountriesWeOffer from '../component/CountriesWeOffer';
 import Footer from '../component/Footer';
 import TrainingSection from '../component/TrainingSection';
 import PassportPost from '../component/PassportPost';
-
+import PassportAssistance from '../component/PassportAssistance';
 function Passport() {
     const [showBackToTop, setShowBackToTop] = useState(false);
     
@@ -36,10 +36,8 @@ function Passport() {
     
   return (
     <div>
-    <PassportPost />
-     <ServiceSection />
-      <FeatureSection />
-      <CountriesWeOffer />
+   
+    <PassportAssistance />
       <TrainingSection />
       <Footer />
       

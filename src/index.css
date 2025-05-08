@@ -27,3 +27,48 @@
 .slick-slide.slick-active {
   animation: fadeIn 0.5s ease-in;
 }
+
+.hero-clip-path {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+@media (max-width: 768px) {
+  .hero-clip-path {
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  }
+}
+
+.hero-clip-path {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.passport-stamp {
+  position: absolute;
+  opacity: 0.1;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+@media (max-width: 768px) {
+  .hero-clip-path {
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  }
+}
+
+.hero-clip-path {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.globe-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.book-jump {
+  animation: bounce-slow 4s infinite;
+}
+
+@media (max-width: 768px) {
+  .hero-clip-path {
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+  }
+}
